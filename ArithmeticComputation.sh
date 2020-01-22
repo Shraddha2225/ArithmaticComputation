@@ -7,4 +7,6 @@ echo "value of c: $c"
 
 #compute operation
 operation1=$((a + b * c ))
-echo "first operation(a+b*c): $operation1"
+echo "First Operation(a+b*c): $operation1"
+operation2=$((a * b + c))
+echo "Second Operation(a*b+c): $operation2"
