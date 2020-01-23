@@ -10,3 +10,5 @@ operation1=$((a + b * c ))
 echo "First Operation(a+b*c): $operation1"
 operation2=$((a * b + c))
 echo "Second Operation(a*b+c): $operation2"
+operation3=$( echo "scale=2; $c + $a / $b" | bc )
+echo "Third Operation(c+a/b): $operation3"
