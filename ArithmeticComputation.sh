@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash -x 
 
 declare -A  operations
 echo "Welcome to Sorting Arithmetic Computation"
@@ -14,15 +14,34 @@ operations[operation3]=$( echo "scale=2; $c + $a / $b" | bc )
 operations[operation4]=$((a % b + c))
 
 #get values from array#
-for ((i=0; i<5; i++))
+for ((i=0; i<4; i++))
 do
 	Dictarray[i]=${operations[operation$((i+1))]}
 done
 
-#print the array here#
-echo "Values From Dictionary Array: ${Dictarray[@]}"
+
 #print key#
 echo "key : ${!operations[@]} "
 #print values#
 echo "values : ${operations[@]}"
+#print the array here#
+echo "Values From Dictionary Array: ${Dictarray[@]}"
+#echo "Length of array: "${#Dictarray[@]}
 
+#DESCENDING ORDER SORTING#
+length=${#Dictarray[@]}
+for ((i=0; i<length; i++))
+do
+	for((j=0; j<length; j++))
+	do
+		if [[ ${Dictarray[j]%.*} -lt ${Dictarray[j+1]%.*} ]]
+		then
+			temp=${Dictarray[j]}
+			Dictarray[j]=${Dictarray[j+1]}
+			Dictarray[j+1]=$temp
+		fi
+	done
+done
+
+#printing sorted array in descending order# 
+echo "Array Sorted In Descending Order:${Dictarray[@]}"
