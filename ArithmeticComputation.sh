@@ -8,17 +8,15 @@ echo "value of b: $b"
 echo "value of c: $c"
 
 #compute operation
-operations[1]=$((a + b * c ))
-operations[2]=$((a * b + c))
-operations[3]=$( echo "scale=2; $c + $a / $b" | bc )
-operations[4]=$((a % b + c))
+operations[operation1]=$((a + b * c ))
+operations[operation2]=$((a * b + c))
+operations[operation3]=$( echo "scale=2; $c + $a / $b" | bc )
+operations[operation4]=$((a % b + c))
 
 #get values from array#
-k=0
-for i in  ${!operations[@]}
+for ((i=0; i<5; i++))
 do
-	Dictarray[$k]=${operations[$i]}
-	((k++))
+	Dictarray[i]=${operations[operation$((i+1))]}
 done
 
 #print the array here#
@@ -27,3 +25,4 @@ echo "Values From Dictionary Array: ${Dictarray[@]}"
 echo "key : ${!operations[@]} "
 #print values#
 echo "values : ${operations[@]}"
+
