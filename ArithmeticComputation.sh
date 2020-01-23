@@ -28,13 +28,13 @@ echo "values : ${operations[@]}"
 echo "Values From Dictionary Array: ${Dictarray[@]}"
 #echo "Length of array: "${#Dictarray[@]}
 
-#DESCENDING ORDER SORTING#
+#ASCENDING ORDER SORTING#
 length=${#Dictarray[@]}
 for ((i=0; i<length; i++))
 do
 	for((j=0; j<length; j++))
 	do
-		if [[ ${Dictarray[j]%.*} -lt ${Dictarray[j+1]%.*} ]]
+		if [[ ${Dictarray[j]%.*} -gt ${Dictarray[j+1]%.*} ]]
 		then
 			temp=${Dictarray[j]}
 			Dictarray[j]=${Dictarray[j+1]}
@@ -43,5 +43,5 @@ do
 	done
 done
 
-#printing sorted array in descending order# 
-echo "Array Sorted In Descending Order:${Dictarray[@]}"
+#printing sorted array in ascending order# 
+echo "Array Sorted In Ascending Order:${Dictarray[@]}"
